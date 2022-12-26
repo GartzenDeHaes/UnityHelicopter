@@ -15,4 +15,4 @@ A/D: Cyclic left/right
 UP/DOWN: Throttle
 LEFT/RIGHT: Tail rotor
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/C1UqkVcUXvU)
+[![YouTube Video](https://img.youtube.com/vi/C1UqkVcUXvU/0.jpg)](https://youtu.be/C1UqkVcUXvU)
