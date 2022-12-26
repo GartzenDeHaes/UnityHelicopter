@@ -1,6 +1,6 @@
 # UnityHelicopter
 
-##A Unity helicopter controller
+## A Unity helicopter controller
 
 ### Design notes
 
