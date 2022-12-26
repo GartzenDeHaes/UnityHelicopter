@@ -10,20 +10,24 @@ namespace Portland.Helicopter
 	/// </summary>
 	public class HeliControlValues : MonoBehaviour
 	{
-		[NonSerialized]
+		//[NonSerialized]
 		[Range(-1, 1)]
 		public float CyclicLeftRight = 0f;
 
-		[NonSerialized]
+		//[NonSerialized]
 		[Range(-1, 1)]
 		public float CyclicForBack = 0f;
 
-		[NonSerialized]
+		//[NonSerialized]
 		[Range(-1, 1)]
 		public float PedalsLeftRight = 0f;
 
-		[NonSerialized]
-		[Range(0, 1)]
+		//[NonSerialized]
+		[Range(-1, 1)]
 		public float Throttle = 0f;
+
+		public bool EnableCamera = true;
+		public bool EnableMouseInput = true;
+		public bool EnableKeyInput = true;
 	}
 }

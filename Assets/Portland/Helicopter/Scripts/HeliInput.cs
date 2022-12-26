@@ -24,10 +24,13 @@ namespace Portland.Helicopter
 		// Update is called once per frame
 		void Update()
 		{
-			Inputs.CyclicForBack = Input.GetAxis(CyclicForBackInputAxis);
-			Inputs.CyclicLeftRight = Input.GetAxis(CyclicLeftRightInputAxis);
-			Inputs.PedalsLeftRight = Input.GetAxis(PedalsLeftRightInputAxis);
-			Inputs.Throttle = Input.GetAxis(ThrottleInputAxis);
+			if (Inputs.EnableKeyInput)
+			{
+				Inputs.CyclicForBack = Input.GetAxis(CyclicForBackInputAxis);
+				Inputs.CyclicLeftRight = Input.GetAxis(CyclicLeftRightInputAxis);
+				Inputs.PedalsLeftRight = Input.GetAxis(PedalsLeftRightInputAxis);
+				Inputs.Throttle = Input.GetAxis(ThrottleInputAxis);
+			}
 		}
 
 #if UNITY_EDITOR

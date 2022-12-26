@@ -9,11 +9,63 @@ namespace Portland.Helicopter
 		public Transform back;
 		public Transform right;
 		public Transform seat;
+		public Transform infront;
+
+		[SerializeField]
+		HeliControlValues Inputs;
+
+		[SerializeField]
+		Camera TheCamera;
+		[SerializeField]
+		AudioListener TheListener;
+
+		[SerializeField]
+		SmoothMouseLook PilotViewController;
+
+		[SerializeField]
+		AudioSource InterorAudio;
 
 		private int i = 0;
 
+		void OnEnable()
+		{
+			//PilotViewController.enabled = false;
+			TheCamera.enabled = Inputs.EnableCamera;
+			TheListener.enabled = Inputs.EnableCamera;
+			PilotViewController.enabled = i == 1 && Inputs.EnableMouseInput;
+		}
+
 		void Update()
 		{
+			if (Input.GetKeyDown(KeyCode.F))
+			{
+				++i;
+				if (i == 5)
+				{
+					i = 0;
+				}
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha1))
+			{
+				i = 0;
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha2))
+			{
+				i = 1;
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha3))
+			{
+				i = 2;
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha4))
+			{
+				i = 3;
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha5))
+			{
+				i = 4;
+			}
+
 			if (i == 0)
 			{
 				following = true;
@@ -24,26 +76,29 @@ namespace Portland.Helicopter
 				following = false;
 				transform.position = seat.position;
 				transform.rotation = seat.rotation;
-
 			}
 			else if (i == 2)
 			{
-				following = true;
-				target = left;
+				following = false;
+				transform.position = infront.position;
+				transform.rotation = infront.rotation;
 			}
 			else if (i == 3)
 			{
 				following = true;
+				target = left;
+			}
+			else if (i == 4)
+			{
+				following = true;
 				target = right;
 			}
-			if (Input.GetKeyDown(KeyCode.F))
-			{
-				++i;
-				if (i == 4)
-				{
-					i = 0;
-				}
-			}
+
+			InterorAudio.volume = i == 1 ? 1f : 0.25f;
+
+			TheCamera.enabled = Inputs.EnableCamera;
+			TheListener.enabled = Inputs.EnableCamera;
+			PilotViewController.enabled = (i == 1 || i == 2) && Inputs.EnableMouseInput;
 		}
 
 		bool following = false;
@@ -85,7 +140,8 @@ namespace Portland.Helicopter
 			currentHeight = Mathf.Lerp(currentHeight, wantedHeight, heightDamping * Time.deltaTime);
 
 			// Convert the angle into a rotation
-			var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
+			Quaternion currentRotation;
+			currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
 
 			// Set the position of the camera on the x-z plane to:
 			// distance meters behind the target
@@ -98,5 +154,18 @@ namespace Portland.Helicopter
 			// Always look at the target
 			transform.LookAt(target);
 		}
+
+#if UNITY_EDITOR
+		private void OnValidate()
+		{
+			if (PilotViewController == null)
+			{
+				PilotViewController = GetComponent<SmoothMouseLook>();
+				TheCamera = GetComponent<Camera>();
+				TheListener = GetComponent<AudioListener>();
+				Inputs = GetComponentInParent<HeliControlValues>();
+			}
+		}
+#endif
 	}
 }
