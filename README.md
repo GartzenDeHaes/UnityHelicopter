@@ -10,9 +10,9 @@
 
 ### Controls
 
-W/S: Cyclic forward/back
-A/D: Cyclic left/right
-UP/DOWN: Throttle
-LEFT/RIGHT: Tail rotor
+- W/S: Cyclic forward/back
+- A/D: Cyclic left/right
+- UP/DOWN: Throttle
+- LEFT/RIGHT: Tail rotor
 
 [![YouTube Video](https://img.youtube.com/vi/C1UqkVcUXvU/0.jpg)](https://youtu.be/C1UqkVcUXvU)
