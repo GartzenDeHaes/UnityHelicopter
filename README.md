@@ -14,5 +14,6 @@
 - A/D: Cyclic left/right
 - UP/DOWN: Throttle
 - LEFT/RIGHT: Tail rotor
+- F: Change cammera view (rear, pilot, left, right)
 
 [![YouTube Video](https://img.youtube.com/vi/C1UqkVcUXvU/0.jpg)](https://youtu.be/C1UqkVcUXvU)
