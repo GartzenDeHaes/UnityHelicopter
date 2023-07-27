@@ -16,5 +16,5 @@
 - LEFT/RIGHT: Tail rotor
 - F: Change cammera view (rear, pilot, left, right)
 
-## YouTube video of me flying around all four L4D2 Dead Center level joined together:
+### YouTube video of me flying around all four L4D2 Dead Center levels joined together
 [![YouTube Video](https://img.youtube.com/vi/C1UqkVcUXvU/0.jpg)](https://youtu.be/C1UqkVcUXvU)
